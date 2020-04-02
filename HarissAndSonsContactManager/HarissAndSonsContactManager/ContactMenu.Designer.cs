@@ -28,13 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btn_Personal = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btn_Personal
+            // 
+            this.btn_Personal.Location = new System.Drawing.Point(67, 49);
+            this.btn_Personal.Name = "btn_Personal";
+            this.btn_Personal.Size = new System.Drawing.Size(75, 37);
+            this.btn_Personal.TabIndex = 0;
+            this.btn_Personal.Text = "Personal Contact";
+            this.btn_Personal.UseVisualStyleBackColor = true;
+            this.btn_Personal.UseWaitCursor = true;
+            this.btn_Personal.Click += new System.EventHandler(this.btn_Personal_Click);
             // 
             // ContactMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(391, 287);
+            this.Controls.Add(this.btn_Personal);
             this.Name = "ContactMenu";
             this.Text = "ContactMenu";
             this.ResumeLayout(false);
@@ -42,6 +55,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btn_Personal;
     }
 }
 

@@ -10,17 +10,22 @@ using System.Windows.Forms;
 
 namespace HarissAndSonsContactManager
 {
-    public partial class ContactMenu : Form
+
+    
+
+
+    public partial class PersonalEditor : Form
     {
-        public ContactMenu()
+        DbConn dbConn = new DbConn();
+
+        public PersonalEditor()
         {
             InitializeComponent();
         }
 
-        private void btn_Personal_Click(object sender, EventArgs e)
+        private void PersonalEditor_Load(object sender, EventArgs e)
         {
-            PersonalEditor personal = new PersonalEditor();
-            personal.Show();
+            dGVPersonalRecords.DataSource = dbConn.GetAllPersonal();
         }
     }
 }

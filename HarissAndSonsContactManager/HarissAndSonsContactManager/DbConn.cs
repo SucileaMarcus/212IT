@@ -10,7 +10,7 @@ namespace HarissAndSonsContactManager
 {
     public class DbConn
     {
-        private string connString = "Server=it212db.c4zu499kghzi.us-east-1.rds.amazonaws.com;User ID=admin;Password=Heemiola123!;Database=HarrisandSonsContacts212Db;";
+        private string connString = "Server=it212db.c4zu499kghzi.us-east-1.rds.amazonaws.com;User ID=admin;Password=Heemiola123!;Database=HarrisandSonsContactsDb;";
 
         public DataTable GetAllPersonal()
         {
