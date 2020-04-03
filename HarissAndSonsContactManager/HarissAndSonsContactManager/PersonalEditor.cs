@@ -11,8 +11,6 @@ using System.Windows.Forms;
 namespace HarissAndSonsContactManager
 {
 
-    
-
 
     public partial class PersonalEditor : Form
     {

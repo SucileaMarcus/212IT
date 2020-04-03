@@ -22,3 +22,4 @@ C:\Users\Administrator\source\repos\HarissAndSonsContactManager\HarissAndSonsCon
 C:\Users\Administrator\source\repos\HarissAndSonsContactManager\HarissAndSonsContactManager\obj\Debug\HarissAndSonsContactManager.exe
 C:\Users\Administrator\source\repos\HarissAndSonsContactManager\HarissAndSonsContactManager\obj\Debug\HarissAndSonsContactManager.pdb
 C:\Users\Administrator\source\repos\HarissAndSonsContactManager\HarissAndSonsContactManager\obj\Debug\HarissAndSonsContactManager.PersonalEditor.resources
+C:\Users\Administrator\source\repos\HarissAndSonsContactManager\HarissAndSonsContactManager\obj\Debug\HarissAndSonsContactManager.BusinessEditor.resources

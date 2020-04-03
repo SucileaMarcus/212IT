@@ -26,7 +26,7 @@ namespace HarissAndSonsContactManager
                     {
                         personalContacts.Add(new PersonalContact
                         {
-                            ContactID = reader.GetInt32(0),
+                            ContactID = reader.GetInt32(0),                          
                             ContactFname = reader.GetString(1),
                             ContactLname = reader.GetString(2),
                             ContactEmail = reader.GetString(3),
@@ -35,19 +35,21 @@ namespace HarissAndSonsContactManager
                             ContactCity = reader.GetString(6),
                             ContactPostCode = reader.GetString(7),
                             PersonalTel = reader.GetString(8)
-                        });
+                        });;
+                        
 
                     }
 
                 personalContactDt.Columns.Add("ContactID");
                 personalContactDt.Columns.Add("ContactFname");
                 personalContactDt.Columns.Add("ContactLname");
-                personalContactDt.Columns.Add("ContactEmail");
+                personalContactDt.Columns.Add("ContactEmail");   
                 personalContactDt.Columns.Add("ContactAddr1");
                 personalContactDt.Columns.Add("ContactAddr2");
                 personalContactDt.Columns.Add("ContactCity");
                 personalContactDt.Columns.Add("ContactPostCode");
                 personalContactDt.Columns.Add("PersonalTel");
+
 
                 foreach (var item in personalContacts)
                 {
@@ -55,13 +57,12 @@ namespace HarissAndSonsContactManager
                     row["ContactID"] = item.ContactID;
                     row["ContactFname"] = item.ContactFname;
                     row["ContactLname"] = item.ContactLname;
-                    row["ContactEmail"] = item.ContactEmail;
+                    row["ContactEmail"] = item.ContactEmail;                  
                     row["ContactAddr1"] = item.ContactAddr1;
                     row["ContactAddr2"] = item.ContactAddr2;
                     row["ContactCity"] = item.ContactCity;
                     row["ContactPostCode"] = item.ContactPostCode;
                     row["PersonalTel"] = item.PersonalTel;
-
                     personalContactDt.Rows.Add(row);
 
                 }
@@ -222,7 +223,7 @@ namespace HarissAndSonsContactManager
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "CALL udatePersonal(@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9);";
+                    cmd.CommandText = "CALL updateBusiness(@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9);";
                     cmd.Parameters.AddWithValue("p1", businessContact.ContactID);
                     cmd.Parameters.AddWithValue("p2", businessContact.ContactFname);
                     cmd.Parameters.AddWithValue("p3", businessContact.ContactLname);

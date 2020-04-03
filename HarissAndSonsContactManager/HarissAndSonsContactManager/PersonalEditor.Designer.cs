@@ -156,7 +156,7 @@
             // tbTelNumber
             // 
             this.tbTelNumber.Enabled = false;
-            this.tbTelNumber.Location = new System.Drawing.Point(280, 95);
+            this.tbTelNumber.Location = new System.Drawing.Point(280, 199);
             this.tbTelNumber.Name = "tbTelNumber";
             this.tbTelNumber.Size = new System.Drawing.Size(100, 20);
             this.tbTelNumber.TabIndex = 10;
@@ -164,7 +164,7 @@
             // tbAddress1
             // 
             this.tbAddress1.Enabled = false;
-            this.tbAddress1.Location = new System.Drawing.Point(280, 121);
+            this.tbAddress1.Location = new System.Drawing.Point(280, 95);
             this.tbAddress1.Name = "tbAddress1";
             this.tbAddress1.Size = new System.Drawing.Size(100, 20);
             this.tbAddress1.TabIndex = 11;
@@ -172,7 +172,7 @@
             // tbAddress2
             // 
             this.tbAddress2.Enabled = false;
-            this.tbAddress2.Location = new System.Drawing.Point(280, 147);
+            this.tbAddress2.Location = new System.Drawing.Point(280, 121);
             this.tbAddress2.Name = "tbAddress2";
             this.tbAddress2.Size = new System.Drawing.Size(100, 20);
             this.tbAddress2.TabIndex = 12;
@@ -207,7 +207,7 @@
             // lblTel
             // 
             this.lblTel.AutoSize = true;
-            this.lblTel.Location = new System.Drawing.Point(204, 102);
+            this.lblTel.Location = new System.Drawing.Point(204, 202);
             this.lblTel.Name = "lblTel";
             this.lblTel.Size = new System.Drawing.Size(62, 13);
             this.lblTel.TabIndex = 16;
@@ -216,7 +216,7 @@
             // lblAddress1
             // 
             this.lblAddress1.AutoSize = true;
-            this.lblAddress1.Location = new System.Drawing.Point(204, 128);
+            this.lblAddress1.Location = new System.Drawing.Point(204, 102);
             this.lblAddress1.Name = "lblAddress1";
             this.lblAddress1.Size = new System.Drawing.Size(54, 13);
             this.lblAddress1.TabIndex = 17;
@@ -225,7 +225,7 @@
             // lblAddress2
             // 
             this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Location = new System.Drawing.Point(204, 154);
+            this.lblAddress2.Location = new System.Drawing.Point(204, 128);
             this.lblAddress2.Name = "lblAddress2";
             this.lblAddress2.Size = new System.Drawing.Size(54, 13);
             this.lblAddress2.TabIndex = 18;
@@ -234,7 +234,7 @@
             // tbCity
             // 
             this.tbCity.Enabled = false;
-            this.tbCity.Location = new System.Drawing.Point(280, 173);
+            this.tbCity.Location = new System.Drawing.Point(280, 147);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(100, 20);
             this.tbCity.TabIndex = 19;
@@ -242,7 +242,7 @@
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(204, 176);
+            this.lblCity.Location = new System.Drawing.Point(204, 150);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(24, 13);
             this.lblCity.TabIndex = 20;
@@ -251,7 +251,7 @@
             // tbPostCode
             // 
             this.tbPostCode.Enabled = false;
-            this.tbPostCode.Location = new System.Drawing.Point(280, 199);
+            this.tbPostCode.Location = new System.Drawing.Point(280, 173);
             this.tbPostCode.Name = "tbPostCode";
             this.tbPostCode.Size = new System.Drawing.Size(100, 20);
             this.tbPostCode.TabIndex = 21;
@@ -259,7 +259,7 @@
             // lblPostCode
             // 
             this.lblPostCode.AutoSize = true;
-            this.lblPostCode.Location = new System.Drawing.Point(204, 202);
+            this.lblPostCode.Location = new System.Drawing.Point(204, 176);
             this.lblPostCode.Name = "lblPostCode";
             this.lblPostCode.Size = new System.Drawing.Size(56, 13);
             this.lblPostCode.TabIndex = 22;

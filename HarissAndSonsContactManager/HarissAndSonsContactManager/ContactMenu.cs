@@ -22,5 +22,11 @@ namespace HarissAndSonsContactManager
             PersonalEditor personal = new PersonalEditor();
             personal.Show();
         }
+
+        private void btnBusinessContact_Click(object sender, EventArgs e)
+        {
+            BusinessEditor business = new BusinessEditor();
+            business.Show();
+        }
     }
 }
