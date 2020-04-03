@@ -65,7 +65,7 @@
             this.dGVPersonalRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVPersonalRecords.Size = new System.Drawing.Size(462, 186);
             this.dGVPersonalRecords.TabIndex = 0;
-            this.dGVPersonalRecords.SelectionChanged += new System.EventHandler(this.dGVPersonalRecords_SelectionChanged);
+            this.dGVPersonalRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVPersonalRecords_CellClick);
             // 
             // btnUpdate
             // 
@@ -75,6 +75,7 @@
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Update Selected";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSaveNew
             // 
@@ -85,6 +86,7 @@
             this.btnSaveNew.TabIndex = 2;
             this.btnSaveNew.Text = "Save New";
             this.btnSaveNew.UseVisualStyleBackColor = true;
+            this.btnSaveNew.Click += new System.EventHandler(this.btnSaveNew_Click);
             // 
             // btnAddNew
             // 
@@ -114,6 +116,7 @@
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Delete Selected";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -124,6 +127,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save Selected";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // tbFname
             // 

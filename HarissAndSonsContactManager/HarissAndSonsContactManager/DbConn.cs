@@ -101,7 +101,7 @@ namespace HarissAndSonsContactManager
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "CALL udatePersonal(@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9);";
+                    cmd.CommandText = "CALL updatePersonal(@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9);";
                     cmd.Parameters.AddWithValue("p1", personalContact.ContactID);
                     cmd.Parameters.AddWithValue("p2", personalContact.ContactFname);
                     cmd.Parameters.AddWithValue("p3", personalContact.ContactLname);
