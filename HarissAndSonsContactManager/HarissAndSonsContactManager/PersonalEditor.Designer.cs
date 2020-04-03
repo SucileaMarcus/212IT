@@ -65,6 +65,7 @@
             this.dGVPersonalRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVPersonalRecords.Size = new System.Drawing.Size(462, 186);
             this.dGVPersonalRecords.TabIndex = 0;
+            this.dGVPersonalRecords.SelectionChanged += new System.EventHandler(this.dGVPersonalRecords_SelectionChanged);
             // 
             // btnUpdate
             // 
@@ -93,6 +94,7 @@
             this.btnAddNew.TabIndex = 3;
             this.btnAddNew.Text = "Add New";
             this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnRefresh
             // 
@@ -102,6 +104,7 @@
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnDelete
             // 
