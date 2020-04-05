@@ -51,6 +51,7 @@
             this.btnSaveNew = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dGVBusinessRecords = new System.Windows.Forms.DataGridView();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVBusinessRecords)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,10 +210,11 @@
             this.btnDelete.TabIndex = 28;
             this.btnDelete.Text = "Delete Selected";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(44, 187);
+            this.btnRefresh.Location = new System.Drawing.Point(45, 206);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 27;
@@ -253,22 +255,34 @@
             // 
             // dGVBusinessRecords
             // 
+            this.dGVBusinessRecords.AllowUserToAddRows = false;
             this.dGVBusinessRecords.AllowUserToResizeColumns = false;
             this.dGVBusinessRecords.AllowUserToResizeRows = false;
             this.dGVBusinessRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVBusinessRecords.Location = new System.Drawing.Point(44, 232);
+            this.dGVBusinessRecords.Location = new System.Drawing.Point(45, 252);
             this.dGVBusinessRecords.Name = "dGVBusinessRecords";
             this.dGVBusinessRecords.ReadOnly = true;
             this.dGVBusinessRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVBusinessRecords.Size = new System.Drawing.Size(462, 186);
+            this.dGVBusinessRecords.Size = new System.Drawing.Size(680, 186);
             this.dGVBusinessRecords.TabIndex = 23;
             this.dGVBusinessRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVBusinessRecords_CellClick);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(45, 77);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 46;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // BusinessEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblPostCode);
             this.Controls.Add(this.tbPostCode);
             this.Controls.Add(this.lblCity);
@@ -326,5 +340,6 @@
         private System.Windows.Forms.Button btnSaveNew;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridView dGVBusinessRecords;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

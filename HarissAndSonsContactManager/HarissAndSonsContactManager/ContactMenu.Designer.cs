@@ -34,9 +34,9 @@
             // 
             // btn_Personal
             // 
-            this.btn_Personal.Location = new System.Drawing.Point(67, 49);
+            this.btn_Personal.Location = new System.Drawing.Point(99, 150);
             this.btn_Personal.Name = "btn_Personal";
-            this.btn_Personal.Size = new System.Drawing.Size(75, 37);
+            this.btn_Personal.Size = new System.Drawing.Size(151, 37);
             this.btn_Personal.TabIndex = 0;
             this.btn_Personal.Text = "Personal Contact";
             this.btn_Personal.UseVisualStyleBackColor = true;
@@ -45,9 +45,9 @@
             // 
             // btnBusinessContact
             // 
-            this.btnBusinessContact.Location = new System.Drawing.Point(67, 125);
+            this.btnBusinessContact.Location = new System.Drawing.Point(99, 252);
             this.btnBusinessContact.Name = "btnBusinessContact";
-            this.btnBusinessContact.Size = new System.Drawing.Size(75, 35);
+            this.btnBusinessContact.Size = new System.Drawing.Size(151, 35);
             this.btnBusinessContact.TabIndex = 1;
             this.btnBusinessContact.Text = "Business Contact";
             this.btnBusinessContact.UseVisualStyleBackColor = true;
@@ -57,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 287);
+            this.ClientSize = new System.Drawing.Size(785, 471);
             this.Controls.Add(this.btnBusinessContact);
             this.Controls.Add(this.btn_Personal);
             this.Name = "ContactMenu";

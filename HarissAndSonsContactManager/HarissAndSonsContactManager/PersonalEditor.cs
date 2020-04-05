@@ -167,5 +167,30 @@ namespace HarissAndSonsContactManager
 
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            btnSave.Enabled = false;
+            btnAddNew.Enabled = true;
+            btnSaveNew.Enabled = false;
+            btnUpdate.Enabled = true;
+            btnDelete.Enabled = true;
+            tbFname.Text = String.Empty;
+            tbLname.Text = String.Empty;
+            tbEmail.Text = String.Empty;
+            tbAddress1.Text = String.Empty;
+            tbAddress2.Text = String.Empty;
+            tbCity.Text = String.Empty;
+            tbPostCode.Text = String.Empty;
+            tbTelNumber.Text = String.Empty;
+            tbFname.Enabled = false;
+            tbLname.Enabled = false;
+            tbEmail.Enabled = false;
+            tbAddress1.Enabled = false;
+            tbAddress2.Enabled = false;
+            tbCity.Enabled = false;
+            tbPostCode.Enabled = false;
+            tbTelNumber.Enabled = false;
+        }
     }
 }

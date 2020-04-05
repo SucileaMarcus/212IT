@@ -51,11 +51,13 @@
             this.lblCity = new System.Windows.Forms.Label();
             this.tbPostCode = new System.Windows.Forms.TextBox();
             this.lblPostCode = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVPersonalRecords)).BeginInit();
             this.SuspendLayout();
             // 
             // dGVPersonalRecords
             // 
+            this.dGVPersonalRecords.AllowUserToAddRows = false;
             this.dGVPersonalRecords.AllowUserToResizeColumns = false;
             this.dGVPersonalRecords.AllowUserToResizeRows = false;
             this.dGVPersonalRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -265,11 +267,22 @@
             this.lblPostCode.TabIndex = 22;
             this.lblPostCode.Text = "Post Code";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(13, 70);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 23;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // PersonalEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 423);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblPostCode);
             this.Controls.Add(this.tbPostCode);
             this.Controls.Add(this.lblCity);
@@ -327,5 +340,6 @@
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.TextBox tbPostCode;
         private System.Windows.Forms.Label lblPostCode;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

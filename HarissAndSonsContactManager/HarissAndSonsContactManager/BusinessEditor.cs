@@ -78,6 +78,7 @@ namespace HarissAndSonsContactManager
             businessContact.ContactPostCode = tbPostCode.Text;
             businessContact.BusinessTel = tbTelNumber.Text;
             dbConn.InsertBusiness(businessContact);
+            dGVBusinessRecords.DataSource = dbConn.GetAllBusiness();
             tbFname.Enabled = false;
             tbLname.Enabled = false;
             tbEmail.Enabled = false;
@@ -116,7 +117,7 @@ namespace HarissAndSonsContactManager
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
+        {   
             int index = Int32.Parse(dGVBusinessRecords.SelectedCells[0].Value.ToString());
             BusinessContact businessContact = new BusinessContact();
             businessContact.ContactID = index;
@@ -142,6 +143,48 @@ namespace HarissAndSonsContactManager
             btnDelete.Enabled = true;
             btnAddNew.Enabled = true;
             btnSave.Enabled = false;
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string message = "Are you sure you want to delete?";
+            string caption = "Do you want to delete the contact with the record ID of" + Int32.Parse(dGVBusinessRecords.SelectedCells[0].Value.ToString());
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+
+            if (result == DialogResult.Yes)
+            {
+                dbConn.DeleteBusiness(Int32.Parse(dGVBusinessRecords.SelectedCells[0].Value.ToString()));
+                dGVBusinessRecords.DataSource = dbConn.GetAllBusiness();
+
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            btnSave.Enabled = false;
+            btnAddNew.Enabled = true;
+            btnSaveNew.Enabled = false;
+            btnUpdate.Enabled = true;
+            btnDelete.Enabled = true;
+            tbFname.Text = String.Empty;
+            tbLname.Text = String.Empty;
+            tbEmail.Text = String.Empty;
+            tbAddress1.Text = String.Empty;
+            tbAddress2.Text = String.Empty;
+            tbCity.Text = String.Empty;
+            tbPostCode.Text = String.Empty;
+            tbTelNumber.Text = String.Empty;
+            tbFname.Enabled = false;
+            tbLname.Enabled = false;
+            tbEmail.Enabled = false;
+            tbAddress1.Enabled = false;
+            tbAddress2.Enabled = false;
+            tbCity.Enabled = false;
+            tbPostCode.Enabled = false;
+            tbTelNumber.Enabled = false;
         }
     }
 }
