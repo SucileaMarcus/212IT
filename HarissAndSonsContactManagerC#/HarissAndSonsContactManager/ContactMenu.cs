@@ -19,14 +19,16 @@ namespace HarissAndSonsContactManager
 
         private void btn_Personal_Click(object sender, EventArgs e)
         {
-            PersonalEditor personal = new PersonalEditor();
+            PersonalEditor personal = new PersonalEditor();   
             personal.Show();
+            this.Hide();
         }
 
         private void btnBusinessContact_Click(object sender, EventArgs e)
         {
-            BusinessEditor business = new BusinessEditor();
+            BusinessEditor business = new BusinessEditor();        
             business.Show();
+            this.Hide();
         }
     }
 }

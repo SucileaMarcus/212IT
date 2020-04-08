@@ -52,6 +52,7 @@
             this.tbPostCode = new System.Windows.Forms.TextBox();
             this.lblPostCode = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVPersonalRecords)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,11 +62,11 @@
             this.dGVPersonalRecords.AllowUserToResizeColumns = false;
             this.dGVPersonalRecords.AllowUserToResizeRows = false;
             this.dGVPersonalRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVPersonalRecords.Location = new System.Drawing.Point(12, 225);
+            this.dGVPersonalRecords.Location = new System.Drawing.Point(12, 252);
             this.dGVPersonalRecords.Name = "dGVPersonalRecords";
             this.dGVPersonalRecords.ReadOnly = true;
             this.dGVPersonalRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVPersonalRecords.Size = new System.Drawing.Size(462, 186);
+            this.dGVPersonalRecords.Size = new System.Drawing.Size(776, 186);
             this.dGVPersonalRecords.TabIndex = 0;
             this.dGVPersonalRecords.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVPersonalRecords_CellClick);
             // 
@@ -277,11 +278,22 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.Location = new System.Drawing.Point(661, 195);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnMainMenu.TabIndex = 24;
+            this.btnMainMenu.Text = "Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
             // PersonalEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 423);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblPostCode);
             this.Controls.Add(this.tbPostCode);
@@ -307,6 +319,7 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dGVPersonalRecords);
             this.Name = "PersonalEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonalEditor";
             this.Load += new System.EventHandler(this.PersonalEditor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVPersonalRecords)).EndInit();
@@ -341,5 +354,6 @@
         private System.Windows.Forms.TextBox tbPostCode;
         private System.Windows.Forms.Label lblPostCode;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }

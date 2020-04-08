@@ -41,6 +41,7 @@ namespace HarissAndSonsContactManager
             tbPostCode.Enabled = true;
             tbTelNumber.Enabled = true;
             btnUpdate.Enabled = false;
+            btnAddNew.Enabled = false;
             btnDelete.Enabled = false;
             btnSaveNew.Enabled = true;
             tbFname.Text = String.Empty;
@@ -87,7 +88,7 @@ namespace HarissAndSonsContactManager
             tbCity.Enabled = false;
             tbPostCode.Enabled = false;
             tbTelNumber.Enabled = false;
-            btnUpdate.Enabled = true;
+            btnUpdate.Enabled = true;           
             btnDelete.Enabled = true;
             btnSaveNew.Enabled = false;
             tbFname.Text = String.Empty;
@@ -185,6 +186,13 @@ namespace HarissAndSonsContactManager
             tbCity.Enabled = false;
             tbPostCode.Enabled = false;
             tbTelNumber.Enabled = false;
+        }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            ContactMenu contactMenu = new ContactMenu();
+            this.Close();
+            contactMenu.Show();
         }
     }
 }

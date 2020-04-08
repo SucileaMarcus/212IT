@@ -52,6 +52,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dGVBusinessRecords = new System.Windows.Forms.DataGridView();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVBusinessRecords)).BeginInit();
             this.SuspendLayout();
             // 
@@ -277,11 +278,22 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.Location = new System.Drawing.Point(641, 205);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnMainMenu.TabIndex = 47;
+            this.btnMainMenu.Text = "Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
             // BusinessEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblPostCode);
             this.Controls.Add(this.tbPostCode);
@@ -307,6 +319,7 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dGVBusinessRecords);
             this.Name = "BusinessEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BusinessEditor";
             this.Load += new System.EventHandler(this.BusinessEditor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVBusinessRecords)).EndInit();
@@ -341,5 +354,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridView dGVBusinessRecords;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }
