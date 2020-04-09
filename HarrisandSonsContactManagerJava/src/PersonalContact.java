@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -22,8 +23,9 @@ import java.awt.event.ActionEvent;
 
 public class PersonalContact extends JFrame {
 
+	
 	private JPanel contentPane;
-	private JTable table;
+	private JTable table_Personal;
 	private JTextField tbFname;
 	private JTextField tbLname;
 	private JTextField tbAddress1;
@@ -60,24 +62,16 @@ public class PersonalContact extends JFrame {
 		setContentPane(contentPane);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.addMouseListener(new MouseAdapter() {			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+			}
+		});
 		scrollPane.setBounds(53, 92, 483, 220);
 		contentPane.add(scrollPane);
-				
-		table = new JTable();
-		scrollPane.setViewportView(table);
 		DbConn d = new DbConn();		
-		JButton btnRefresh = new JButton("Refresh");
-		btnRefresh.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnRefresh.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				table.setModel(DbUtils.resultSetToTableModel(d.GetAllPersonal()));
-			}
-		});
+		
 		
 		tbFname = new JTextField();
 		tbFname.setColumns(10);
@@ -119,112 +113,221 @@ public class PersonalContact extends JFrame {
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Tel Number");
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnUpdate = new JButton("Update");
+		JButton btnRefresh = new JButton("Refresh");
+		JButton btnAddNew = new JButton("Add New");
+		JButton btnDelete = new JButton("Delete");
+		JButton btnSaveSelected = new JButton("Save Selected");
+		JButton btnSave = new JButton("Save");
 		
-		JButton btnNewButton_1 = new JButton("New button");
+		btnRefresh.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				table_Personal.setModel(DbUtils.resultSetToTableModel(d.GetAllPersonal()));
+			}
+		});		
 		
-		JButton btnNewButton_2 = new JButton("New button");
+		btnAddNew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnUpdate.setEnabled(false);
+				btnSaveSelected.setEnabled(false);
+				btnSave.setEnabled(true);
+				btnDelete.setEnabled(false);
+				btnAddNew.setEnabled(false);
+				
+				
+			}
+		});		
 		
-		JButton btnNewButton_3 = new JButton("New button");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+				
+		btnSaveSelected.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String Fname = tbFname.getText();
+				String Lname = tbLname.getText();
+				String Email = tbEmail.getText();
+				String Address1 = tbAddress1.getText();
+				String Address2 = tbAddress2.getText();
+				String PostCode = tbPostCode.getText();
+				String City = tbCity.getText();
+				String TelNumber = tbTelNumber.getText();
+				int id = Integer.parseInt(table_Personal.getValueAt(table_Personal.getSelectedRow(), 0).toString());					
+				d.UpdatePersonal(Fname, Lname, Email, Address1, Address2, PostCode, City, TelNumber, id);
+				table_Personal.setModel(DbUtils.resultSetToTableModel(d.GetAllPersonal()));
+			}
+		});
+		btnSaveSelected.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSaveSelected.setEnabled(false);		
 		
-		JButton btnNewButton_4 = new JButton("New button");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		btnSave.setEnabled(false);
+		
+		
+		btnUpdate.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btnUpdate.setEnabled(false);
+				btnAddNew.setEnabled(false);
+				btnSave.setEnabled(false);
+				btnDelete.setEnabled(false);
+				btnSaveSelected.setEnabled(true);
+				btnSave.setEnabled(false);
+			
+			}
+		});
+
+		table_Personal = new JTable();
+		table_Personal.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				tbFname.setText(table_Personal.getValueAt(table_Personal.getSelectedRow(),1).toString());
+				tbLname.setText(table_Personal.getValueAt(table_Personal.getSelectedRow(),2).toString());
+				tbEmail.setText(table_Personal.getValueAt(table_Personal.getSelectedRow(),3).toString());
+				tbAddress1.setText(table_Personal.getValueAt(table_Personal.getSelectedRow(),4).toString());
+				tbAddress2.setText(table_Personal.getValueAt(table_Personal.getSelectedRow(),5).toString());
+				tbPostCode.setText(table_Personal.getValueAt(table_Personal.getSelectedRow(),6).toString());
+				tbCity.setText(table_Personal.getValueAt(table_Personal.getSelectedRow(),7).toString());
+				tbTelNumber.setText(table_Personal.getValueAt(table_Personal.getSelectedRow(),8).toString());
+				
+			}
+		});
+		scrollPane.setViewportView(table_Personal);
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(60)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-									.addComponent(lblNewLabel)
-									.addComponent(lblLastName, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
-								.addComponent(lblEmail, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(tbLname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tbFname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tbEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblAddress, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_1_1_1, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
-							.addGap(9)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(tbAddress2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tbAddress1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tbCity, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNewLabel_1_2, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_1_2_1, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(tbPostCode, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tbTelNumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(18)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(btnNewButton)
-									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(btnNewButton_3))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(btnNewButton_1)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(btnNewButton_4))
-								.addComponent(btnNewButton_2)))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(25)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(btnRefresh)
-								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 670, GroupLayout.PREFERRED_SIZE))))
+					.addGap(60)
+					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(10)
+					.addComponent(tbFname, GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+					.addGap(4)
+					.addComponent(lblAddress, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+					.addGap(9)
+					.addComponent(tbAddress1, GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+					.addGap(4)
+					.addComponent(lblNewLabel_1_2, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+					.addGap(12)
+					.addComponent(tbPostCode, GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+					.addGap(18)
+					.addComponent(btnUpdate, GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+					.addGap(14)
+					.addComponent(btnSaveSelected, GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+					.addGap(10))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(60)
+					.addComponent(lblLastName, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+					.addGap(10)
+					.addComponent(tbLname, GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+					.addGap(4)
+					.addComponent(lblNewLabel_1_1, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+					.addGap(9)
+					.addComponent(tbAddress2, GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+					.addGap(4)
+					.addComponent(lblNewLabel_1_2_1, GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+					.addGap(4)
+					.addComponent(tbTelNumber, GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+					.addGap(18)
+					.addComponent(btnAddNew, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+					.addGap(6)
+					.addComponent(btnSave, GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+					.addGap(54))
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGap(106)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+					.addContainerGap())
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGap(60)
+					.addComponent(lblEmail, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+					.addGap(10)
+					.addComponent(tbEmail, GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+					.addGap(4)
+					.addComponent(lblNewLabel_1_1_1, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+					.addGap(9)
+					.addComponent(tbCity, GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+					.addGap(171)
+					.addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+					.addGap(129))
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addContainerGap(639, Short.MAX_VALUE)
+					.addComponent(btnRefresh)
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(23)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel)
-						.addComponent(tbFname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(tbAddress1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblAddress)
-						.addComponent(lblNewLabel_1_2)
-						.addComponent(tbPostCode, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton)
-						.addComponent(btnNewButton_3))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblLastName)
-								.addComponent(tbLname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tbAddress2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_1_1)
-								.addComponent(lblNewLabel_1_2_1)
-								.addComponent(tbTelNumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(tbEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblEmail)
-								.addComponent(tbCity, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_1_1_1))
-							.addPreferredGap(ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-							.addComponent(btnRefresh))
+							.addGap(4)
+							.addComponent(lblNewLabel))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnNewButton_1)
-								.addComponent(btnNewButton_4))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btnNewButton_2)))
+							.addGap(1)
+							.addComponent(tbFname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(4)
+							.addComponent(lblAddress))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(1)
+							.addComponent(tbAddress1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(4)
+							.addComponent(lblNewLabel_1_2))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(1)
+							.addComponent(tbPostCode, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnUpdate)
+						.addComponent(btnSaveSelected))
+					.addGap(11)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblLastName))
+						.addComponent(tbLname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_1_1))
+						.addComponent(tbAddress2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_1_2_1))
+						.addComponent(tbTelNumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnAddNew)
+						.addComponent(btnSave))
+					.addGap(8)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblEmail))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(tbEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 6, Short.MAX_VALUE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_1_1_1))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(tbCity, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED, 6, Short.MAX_VALUE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED, 3, Short.MAX_VALUE)
+							.addComponent(btnDelete)))
+					.addGap(24)
+					.addComponent(btnRefresh)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
 		);
-		
-		table = new JTable();
-		scrollPane.setViewportView(table);
 		contentPane.setLayout(gl_contentPane);
 	}
 }
