@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HarissAndSonsContactManager.BusinessContact" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessContact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarissAndSonsContactManager.BusinessEditor" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAo0LAABCCQCAERMAKEIEADAAAAABQAAAGGAAIABwQ=</HashCode>
+      <FileName>BusinessEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarissAndSonsContactManager.Contact" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAIAAAAAgAAAAIAAAAAABAEAAAAAAAAAAgA=</HashCode>
+      <FileName>Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarissAndSonsContactManager.ContactMenu" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAIACAAAAAgAACAAAACAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ContactMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarissAndSonsContactManager.DbConn" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACBAAAAAAgAAAAAAAAAABAEEAAAAAAAAAAAABQAACAA=</HashCode>
+      <FileName>DbConn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarissAndSonsContactManager.PersonalContact" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PersonalContact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarissAndSonsContactManager.PersonalEditor" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAo0LACBCCQCAEREAKEIEADAAAAABQAAAGGIAIABwY=</HashCode>
+      <FileName>PersonalEditor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarissAndSonsContactManager.Program" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarissAndSonsContactManager.Properties.Resources" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarissAndSonsContactManager.Properties.Settings" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
