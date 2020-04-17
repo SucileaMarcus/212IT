@@ -8,10 +8,19 @@ using System.Threading.Tasks;
 
 namespace HarissAndSonsContactManager
 {
+    /// <summary>
+    /// This class contains the CRUD methods and communicates with the SQL database
+    /// ensuring the connection and
+    /// calling the store procedures from the SQL database
+    /// </summary>
     public class DbConn
     {
+        // connString variable that stores the SQL connection credentials //
         private string connString = "Server=it212db.c4zu499kghzi.us-east-1.rds.amazonaws.com;User ID=admin;Password=Heemiola123!;Database=HarrisandSonsContactsDb;";
 
+
+        // This method calls the selectAllPersonal() store procedure and populates the fields in PersonalContact class 
+        // returning it to the PersonalContactDt DataTable, used by the PersonalEditor.cs class
         public DataTable GetAllPersonal()
         {
             using (var conn = new MySqlConnection(connString))
@@ -19,11 +28,13 @@ namespace HarissAndSonsContactManager
                 conn.Open();
                 DataTable personalContactDt = new DataTable();
                 List<PersonalContact> personalContacts = new List<PersonalContact>();
+                // calls selectAllPersonal() store procedure //
                 using (var cmd = new MySqlCommand("CALL selectAllPersonal();", conn))
 
                 using (var reader = cmd.ExecuteReader())
                     while (reader.Read())
                     {
+                        // populates PersonalContact fields //
                         personalContacts.Add(new PersonalContact
                         {
                             ContactID = reader.GetInt32(0),                          
@@ -39,7 +50,7 @@ namespace HarissAndSonsContactManager
                         
 
                     }
-
+                // populates the data table columns //
                 personalContactDt.Columns.Add("ContactID");
                 personalContactDt.Columns.Add("ContactFname");
                 personalContactDt.Columns.Add("ContactLname");
@@ -50,9 +61,10 @@ namespace HarissAndSonsContactManager
                 personalContactDt.Columns.Add("ContactPostCode");
                 personalContactDt.Columns.Add("PersonalTel");
 
-
+                
                 foreach (var item in personalContacts)
                 {
+                    // populates the data table rows //
                     var row = personalContactDt.NewRow();
                     row["ContactID"] = item.ContactID;
                     row["ContactFname"] = item.ContactFname;
@@ -66,16 +78,19 @@ namespace HarissAndSonsContactManager
                     personalContactDt.Rows.Add(row);
 
                 }
+                // returns personalContactDt data table //
                 return personalContactDt;
             }
 
         }
 
-        public void InsertPersonal(PersonalContact personalContact)
+        // This method calls the insertPersonal() store procedure using the personalContact object 
+        // as parameter for the method and its values from each field         
+        public async void InsertPersonal(PersonalContact personalContact)
         {
             using (var conn = new MySqlConnection(connString))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
@@ -88,16 +103,18 @@ namespace HarissAndSonsContactManager
                     cmd.Parameters.AddWithValue("p6", personalContact.ContactCity);
                     cmd.Parameters.AddWithValue("p7", personalContact.ContactPostCode);
                     cmd.Parameters.AddWithValue("p8", personalContact.PersonalTel);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
                 }
             }
         }
 
-        public void UpdatePersonal(PersonalContact personalContact)
+        // This method calls the updatePersonal() store procedure using the personalContact object 
+        // as parameter for the method and its values from each field 
+        public async void UpdatePersonal(PersonalContact personalContact)
         {
             using (var conn = new MySqlConnection(connString))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
@@ -111,28 +128,34 @@ namespace HarissAndSonsContactManager
                     cmd.Parameters.AddWithValue("p7", personalContact.ContactCity);
                     cmd.Parameters.AddWithValue("p8", personalContact.ContactPostCode);
                     cmd.Parameters.AddWithValue("p9", personalContact.PersonalTel);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
 
                 }
             }
         }
-        public void DeletePersonal(int id)
+
+        // This method calls the deletePersonal() store procedure using the id  
+        // as parameter
+        public async void DeletePersonal(int id)
         {
             using (var conn = new MySqlConnection(connString))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "CALL deletePersonal(@p1);";
                     cmd.Parameters.AddWithValue("p1", id);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
 
                 }
             }
 
         }
 
+
+        // This method calls the selectAllBusiness() store procedure and populates the fields in BusinessContact class 
+        // returning it to the BusinessContactDt DataTable that is used by the BusinessEditor.cs class
         public DataTable GetAllBusiness()
         {
             using (var conn = new MySqlConnection(connString))
@@ -140,11 +163,13 @@ namespace HarissAndSonsContactManager
                 conn.Open();
                 DataTable businessContactDt = new DataTable();
                 List<BusinessContact> businessContacts = new List<BusinessContact>();
+                // calls selectAllPersonal() store procedure //
                 using (var cmd = new MySqlCommand("CALL selectAllBusiness();", conn))
 
                 using (var reader = cmd.ExecuteReader())
                     while (reader.Read())
                     {
+                        // populates PersonalContact fields //
                         businessContacts.Add(new BusinessContact
                         {
                             ContactID = reader.GetInt32(0),
@@ -159,7 +184,7 @@ namespace HarissAndSonsContactManager
                         });
 
                     }
-
+                // populates the data table columns //
                 businessContactDt.Columns.Add("ContactID");
                 businessContactDt.Columns.Add("ContactFname");
                 businessContactDt.Columns.Add("ContactLname");
@@ -172,6 +197,7 @@ namespace HarissAndSonsContactManager
 
                 foreach (var item in businessContacts)
                 {
+                    // populates the data table rows //
                     var row = businessContactDt.NewRow();
                     row["ContactID"] = item.ContactID;
                     row["ContactFname"] = item.ContactFname;
@@ -186,16 +212,19 @@ namespace HarissAndSonsContactManager
                     businessContactDt.Rows.Add(row);
 
                 }
+                // returns businessContactDt data table //
                 return businessContactDt;
             }
 
         }
-    
-        public void InsertBusiness(BusinessContact businessContact)
+
+        // This method calls the insertBusiness() store procedure using the businessContact object 
+        // as parameter for the method and its values from each field   
+        public async void InsertBusiness(BusinessContact businessContact)
         {
             using (var conn = new MySqlConnection(connString))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
@@ -208,17 +237,19 @@ namespace HarissAndSonsContactManager
                     cmd.Parameters.AddWithValue("p6", businessContact.ContactCity);
                     cmd.Parameters.AddWithValue("p7", businessContact.ContactPostCode);
                     cmd.Parameters.AddWithValue("p8", businessContact.BusinessTel);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
 
                 }
             }
         }
 
-        public void UpdateBusiness(BusinessContact businessContact)
+        // This method calls the updateBusiness() store procedure using the businessContact object 
+        // as parameter for the method and its values from each field 
+        public async void UpdateBusiness(BusinessContact businessContact)
         {
             using (var conn = new MySqlConnection(connString))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
@@ -232,23 +263,25 @@ namespace HarissAndSonsContactManager
                     cmd.Parameters.AddWithValue("p7", businessContact.ContactCity);
                     cmd.Parameters.AddWithValue("p8", businessContact.ContactPostCode);
                     cmd.Parameters.AddWithValue("p9", businessContact.BusinessTel);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
 
                 }
             }
         }
 
-        public void DeleteBusiness(int id)
+        // This method calls the deleteBusiness() store procedure using the id  
+        // as parameter
+        public async void DeleteBusiness(int id)
         {
             using (var conn = new MySqlConnection(connString))
             {
-                conn.Open();
+                await conn.OpenAsync();
                 using (var cmd = new MySqlCommand())
                 {
                     cmd.Connection = conn;
                     cmd.CommandText = "CALL deleteBusiness(@p1);";
                     cmd.Parameters.AddWithValue("p1", id);
-                    cmd.ExecuteNonQuery();
+                    await cmd.ExecuteNonQueryAsync();
 
                 }
             }

@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HarissAndSonsContactManager
-{
+{ 
+    /// <summary>
+    /// This class contains the fields required for the CRUD methods 
+    /// used in the DbConn class
+    /// </summary>
     public abstract class Contact
     {
         public int ContactID { get; set; }
